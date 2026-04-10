@@ -1,6 +1,5 @@
 
 import './main2.css'
-import codechef from './images/codechef1.png'
 import github from './images/github.png'
 import linked_in from './images/linked_in.png'
 import { motion } from 'framer-motion';
@@ -36,8 +35,8 @@ const Main = () => {
         </div>
         </div>
         <div className="flex1">
-        <a href="rupeshyadav6129@gmail.com"><button className='buttonc'>E-Mail Me</button></a>
-        <button onClick={() => window.open("/Rupesh-Yadav-Resume.pdf", "_blank")} className='buttonb'>Resume</button>
+        <a href="mailto:rupeshyadav6129@gmail.com"><button className='buttonc'>E-Mail Me</button></a>
+        <button onClick={() => window.open("/portfolio/Rupesh-Yadav-Resume.pdf", "_blank")} className='buttonb'>Resume</button>
         </div>
       </div>
       <div className="right_main">
