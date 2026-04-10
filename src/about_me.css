@@ -1,25 +1,257 @@
-.heading{
-    color:white;
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 35px;
+/* ===== ABOUT ME ===== */
+.about_me {
+  margin-top: 8%;
+  padding: 0 5%;
 }
 
-.about_me_left{
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-size:20px;
+.about_section {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.edu_section {
+  text-align: center;
+}
+
+.about_tag {
+  display: inline-block;
+  background: rgba(0, 206, 252, 0.1);
+  border: 1px solid rgba(0, 206, 252, 0.4);
+  color: #00cefc;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 18px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.about_title {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 38px;
+  margin-bottom: 36px;
+}
+
+.about_highlight {
+  color: #00cefc;
+}
+
+/* About Card */
+.about_card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 206, 252, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about_avatar {
+  min-width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00cefc, #3c1d4b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 0 30px rgba(0, 206, 252, 0.3);
+}
+
+.about_text_block {
+  flex: 1;
+}
+
+.about_desc {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 28px;
+}
+
+/* Stats */
+.about_stats {
+  display: flex;
+  gap: 30px;
+}
+
+.stat_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 206, 252, 0.08);
+  border: 1px solid rgba(0, 206, 252, 0.2);
+  border-radius: 12px;
+  padding: 14px 24px;
+  min-width: 90px;
+}
+
+.stat_num {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #00cefc;
+}
+
+.stat_label {
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* ===== EDUCATION ===== */
+.education_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+  padding-bottom: 60px;
+}
+
+.edu_card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 206, 252, 0.2);
+  border-radius: 18px;
+  padding: 28px 20px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.edu_card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00cefc, #3c1d4b);
+  border-radius: 18px 18px 0 0;
+}
+
+.edu_card_highlight {
+  border-color: rgba(0, 206, 252, 0.4);
+  background: rgba(0, 206, 252, 0.06);
+}
+
+.edu_card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 206, 252, 0.2);
+}
+
+.edu_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.edu_icon {
+  font-size: 32px;
+}
+
+.edu_badge {
+  display: inline-block;
+  background: rgba(0, 206, 252, 0.15);
+  color: #00cefc;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid rgba(0, 206, 252, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.edu_badge_gold {
+  background: rgba(255, 200, 0, 0.12);
+  color: #ffc800;
+  border-color: rgba(255, 200, 0, 0.3);
+}
+
+.edu_degree {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.edu_school {
+  color: rgba(255, 255, 255, 0.55);
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.edu_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+}
+
+.edu_year {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+}
+
+.edu_score {
+  background: linear-gradient(135deg, #00cefc, #3c1d4b);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .education_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about_card {
+    flex-direction: column;
     text-align: center;
-    color:rgba(255, 255, 255, 0.8);
-    width:50%;
-}
-.about_me_right{
-    width:40%;
-}
-.about_me_info{
-    display:flex;
+    padding: 28px 20px;
+  }
+  .about_stats {
     justify-content: center;
+  }
+  .about_title {
+    font-size: 28px;
+  }
 }
-.about_me{
-    margin-top: 10%;
+
+@media (max-width: 500px) {
+  .education_grid {
+    grid-template-columns: 1fr;
+  }
+  .about_stats {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
 }

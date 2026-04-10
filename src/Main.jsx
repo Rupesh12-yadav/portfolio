@@ -4,44 +4,81 @@ import github from './images/github.png'
 import linked_in from './images/linked_in.png'
 import { motion } from 'framer-motion';
 import leetcodes from './images/leetcodes.png';
-
-
+import photo from './images/photo.jpg';
 
 const Main = () => {
   return (
     <motion.div
-    variants={{
-      hidden:{opacity:0,y:50},
-      visible:{opacity:1,y:0}
-    }}
-    initial="hidden"
-    animate="visible"
-    transition={{
-      duration:0.6, delay:0.2
-    }}
-    className='Main' id="mainy">
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 }
+      }}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.7, delay: 0.2 }}
+      className='Main' id="mainy"
+    >
+      {/* Background glow blobs */}
+      <div className="blob blob1"></div>
+      <div className="blob blob2"></div>
+
+      {/* Left Content */}
       <div className="main_left">
-        <h3 className='it_is_me'>Hey! It's Me</h3>
-        <h2 className='names'>Rupesh Gavli</h2>
-        <p className='i_am_a'>I am a&nbsp;<span class="typewriter"></span></p>
-        
-        <div className="flex1">
-        <p className='follow_me'>follow me: </p>
-        <div className="logos">
-       
-        <a href="https://github.com/Rupesh12-yadav" target="_blank" rel="noreferrer"><img src={github} alt=""  /></a>
-        <a href="https://www.linkedin.com/in/rupesh-gavli-656b463a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer"><img src={linked_in} alt=""></img></a>
-        <a href="https://leetcode.com/u/Rupesh__07/" target="_blank" rel="noreferrer"><img src={leetcodes} alt=""></img></a>
-        </div>
-        </div>
-        <div className="flex1">
-        <a href="mailto:rupeshyadav6129@gmail.com"><button className='buttonc'>E-Mail Me</button></a>
-        <button onClick={() => window.open("/portfolio/Rupesh-Yadav-Resume.pdf", "_blank")} className='buttonb'>Resume</button>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <span className="hero_tag">👋 Welcome to my Portfolio</span>
+          <h3 className='it_is_me'>Hey! It's Me</h3>
+          <h2 className='names'>Rupesh Gavli</h2>
+          <p className='i_am_a'>I am a&nbsp;<span className="typewriter"></span></p>
+          <p className="hero_desc">Passionate MERN Stack Developer building scalable and modern web applications with clean code and great UI.</p>
+
+          <div className="hero_socials">
+            <span className="follow_me">Follow me:</span>
+            <div className="logos">
+              <a href="https://github.com/Rupesh12-yadav" target="_blank" rel="noreferrer" className="social_link">
+                <img src={github} alt="GitHub" />
+              </a>
+              <a href="https://www.linkedin.com/in/rupesh-gavli-656b463a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer" className="social_link">
+                <img src={linked_in} alt="LinkedIn" />
+              </a>
+              <a href="https://leetcode.com/u/Rupesh__07/" target="_blank" rel="noreferrer" className="social_link">
+                <img src={leetcodes} alt="LeetCode" />
+              </a>
+            </div>
+          </div>
+
+          <div className="hero_btns">
+            <a href="mailto:rupeshyadav6129@gmail.com">
+              <button className='buttonc'>✉ E-Mail Me</button>
+            </a>
+            <button onClick={() => window.open("/portfolio/Rupesh-Yadav-Resume.pdf", "_blank")} className='buttonb'>
+              📄 Resume
+            </button>
+          </div>
+        </motion.div>
       </div>
-      <div className="right_main">
-      <img className='behind_the_image' src="data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3ClinearGradient id=%22b%22 gradientTransform=%22rotate(-45 .5 .5)%22%3E%3Cstop offset=%220%25%22 stop-color=%22%2300cefc%22%2F%3E%3Cstop offset=%22100%25%22 stop-color=%22%233c1d4b%22%2F%3E%3C%2FlinearGradient%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M921 673.5q-74 173.5-247.5 191t-347 0Q153 847 86.5 673.5T130 370q110-130 240-234.5t281-21Q802 198 898.5 349T921 673.5Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22url(%23b)%22 d=%22M921 673.5q-74 173.5-247.5 191t-347 0Q153 847 86.5 673.5T130 370q110-130 240-234.5t281-21Q802 198 898.5 349T921 673.5Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt=""></img>
-      </div>
+
+      {/* Right Photo */}
+      <motion.div
+        className="right_main"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+      >
+        <div className="photo_ring">
+          <div className="photo_wrapper">
+            <img src={photo} alt="Rupesh Gavli" className="profile_photo" />
+          </div>
+        </div>
+
+        {/* Floating badges */}
+        <div className="badge badge_mern">⚛️ MERN Stack</div>
+        <div className="badge badge_exp">🚀 3+ Projects</div>
+      </motion.div>
+
     </motion.div>
   )
 }

@@ -1,63 +1,139 @@
 .heading1 {
     color: white;
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 35px;
-    margin: 10% 0 3% 0;
-    
+    font-weight: 600;
+    font-size: 38px;
+    margin: 0 0 10px 0;
+    text-align: center;
 }
 
 img.why_logo {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 8px rgba(0,206,252,0.3));
 }
 
 .mid_text {
     font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-size: 30px;
-    margin: 4px 0px;
-    color: white;
+    font-weight: 700;
+    font-size: 32px;
+    margin: 6px 0;
+    color: #00cefc;
 }
 
 .main_text_why {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.4);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
     margin: 2px 0;
 }
 
 .box {
-    background-color: #1E2635;
-    width: 100%; /* Adjusted to 100% for full width within .modiv */
-    max-width: 260px; /* Maximum width to maintain consistent sizing */
-    height: 200px;
-    border-radius: 20px;
-    margin: 0 5%;
-    padding-top: 20px; /* Keep the margin for spacing */
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,206,252,0.2);
+    width: 100%;
+    max-width: 240px;
+    height: 190px;
+    border-radius: 18px;
+    margin: 0 12px;
+    padding: 24px 16px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00cefc, #3c1d4b);
+    border-radius: 18px 18px 0 0;
+}
+
+.box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,206,252,0.15);
+    border-color: rgba(0,206,252,0.4);
 }
 
 .neww {
     display: flex;
-    height: 250px;
     width: 100%;
-    justify-content: space-between; /* Distribute items evenly across the container */
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px 5%;
 }
 
 .modiv {
-    width: 50%; /* Each .modiv takes up 50% of the parent (.neww) */
     display: flex;
-    justify-content: center; /* Center content horizontally */
+    justify-content: center;
 }
 
 .flex2 {
-    height: 100%; /* Fill the available height within .modiv */
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.down_gap{
-    margin-bottom:3%;
+.down_gap {
+    margin-bottom: 3%;
 }
-.up_gap{
-    margin-top:10%;
+.up_gap {
+    margin-top: 8%;
+    padding: 0 5%;
+}
+
+/* Why Hire Me section wrapper */
+.why_section {
+    margin-top: 8%;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.why_tag {
+    display: inline-block;
+    background: rgba(0, 206, 252, 0.1);
+    border: 1px solid rgba(0, 206, 252, 0.4);
+    color: #00cefc;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 18px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.why_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+    padding-bottom: 20px;
+}
+
+.why_icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.why_desc {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+    .why_grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+    .why_grid { grid-template-columns: 1fr; }
 }

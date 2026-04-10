@@ -33,13 +33,17 @@ function App() {
       </div>
     ) :(
     <div className="App">
-      
       <Navbar/>
       <Main id="mainy" />
+      <div className="section_divider"></div>
       <AboutMe id="aboutMey" />
+      <div className="section_divider"></div>
       <WhyHireMe />
+      <div className="section_divider"></div>
       <Skills id="skills" />
+      <div className="section_divider"></div>
       <Projects id="project" />
+      <div className="section_divider"></div>
       <ContactForm id="contact" />
     </div>
     )
