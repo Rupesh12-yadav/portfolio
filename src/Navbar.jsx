@@ -1,72 +1,106 @@
-
 import './main.css';
 import React, { useState, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 
-
+const navLinks = [
+  { to: 'mainy', label: 'Home' },
+  { to: 'aboutMey', label: 'About' },
+  { to: 'skills', label: 'Skills' },
+  { to: 'project', label: 'Projects' },
+  { to: 'contact', label: 'Contact' },
+];
 
 const Navbar = () => {
-  
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <>
-      <div className='navbar'>
-        <div className="left">
-          <h2 className='title'>Portfolio</h2>
+    <nav className={`navbar ${scrolled ? 'navbar_scrolled' : ''}`}>
+      <div className="nav_inner">
+
+        {/* Logo */}
+        <div className="nav_logo">
+          <span className="logo_bracket">&lt;</span>
+          RY
+          <span className="logo_bracket">/&gt;</span>
         </div>
-        <div className="right">
-          <ScrollLink
-            to="mainy"
-            spy={true}
-            smooth={true}
-            offset={-140} // Adjust offset if you have a fixed header
-            duration={600} // Animation duration in milliseconds
-            className='button'
-          >
-            Home
-          </ScrollLink>
-          <ScrollLink
-            to="aboutMey"
-            spy={true}
-            smooth={true}
-            offset={-140} // Adjust offset if you have a fixed header
-            duration={600} // Animation duration in milliseconds
-            className='button'
-          >
-            About Me
-          </ScrollLink>
-          <ScrollLink
-            to="skills"
-            spy={true}
-            smooth={true}
-            offset={-140} // Adjust offset if you have a fixed header
-            duration={600} // Animation duration in milliseconds
-            className='button'
-          >
-            Skills
-          </ScrollLink>
-          <ScrollLink
-            to="project"
-            spy={true}
-            smooth={true}
-            offset={-140} // Adjust offset if you have a fixed header
-            duration={600} // Animation duration in milliseconds
-            className='button'
-          >
-            Projects
-          </ScrollLink>
+
+        {/* Desktop Links */}
+        <div className="nav_links">
+          {navLinks.map((link) => (
+            <ScrollLink
+              key={link.to}
+              to={link.to}
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={600}
+              className="nav_link"
+              activeClass="nav_link_active"
+            >
+              {link.label}
+            </ScrollLink>
+          ))}
           <ScrollLink
             to="contact"
             spy={true}
             smooth={true}
-            offset={-140} // Adjust offset if you have a fixed header
-            duration={600} // Animation duration in milliseconds
-            className='button'
+            offset={-80}
+            duration={600}
+            className="nav_cta"
           >
-            Contact Me
+            Hire Me
           </ScrollLink>
         </div>
+
+        {/* Hamburger */}
+        <button
+          className={`hamburger ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </>
+
+      {/* Mobile Menu */}
+      <div className={`mobile_menu ${menuOpen ? 'mobile_menu_open' : ''}`}>
+        {navLinks.map((link) => (
+          <ScrollLink
+            key={link.to}
+            to={link.to}
+            spy={true}
+            smooth={true}
+            offset={-80}
+            duration={600}
+            className="mobile_link"
+            activeClass="mobile_link_active"
+            onClick={() => setMenuOpen(false)}
+          >
+            {link.label}
+          </ScrollLink>
+        ))}
+        <ScrollLink
+          to="contact"
+          spy={true}
+          smooth={true}
+          offset={-80}
+          duration={600}
+          className="nav_cta mobile_cta"
+          onClick={() => setMenuOpen(false)}
+        >
+          Hire Me
+        </ScrollLink>
+      </div>
+    </nav>
   );
 };
 

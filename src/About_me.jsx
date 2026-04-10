@@ -8,7 +8,7 @@ const educations = [
     badge: '10th',
     degree: 'Secondary Education',
     school: 'Govt Higher School - Sandalpur (MP)',
-    year: '2022',
+    year: '2019-20',
     score: '58%',
     type: 'school'
   },
@@ -17,14 +17,14 @@ const educations = [
     badge: '12th',
     degree: 'Higher Secondary',
     school: 'Govt Higher Secondary School - Sandalpur (MP)',
-    year: '2020',
-    score: '78%',
+    year: '2022-2023',
+    score: '71.9%',
     type: 'school'
   },
   {
     icon: '🎓',
     badge: "Bachelor's",
-    degree: 'B.Tech - Computer Science',
+    degree: 'Bachelor of Computer Applications',
     school: 'Vikram University',
     year: '2023 – 2026',
     score: '7.90 CGPA',

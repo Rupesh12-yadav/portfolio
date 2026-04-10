@@ -33,7 +33,7 @@ const Main = () => {
           <h3 className='it_is_me'>Hey! It's Me</h3>
           <h2 className='names'>Rupesh Gavli</h2>
           <p className='i_am_a'>I am a&nbsp;<span className="typewriter"></span></p>
-          <p className="hero_desc">Passionate MERN Stack Developer building scalable and modern web applications with clean code and great UI.</p>
+          <p className="hero_desc">Passionate Mern Stack Developer building scalable and modern web applications with clean code and great UI.</p>
 
           <div className="hero_socials">
             <span className="follow_me">Follow me:</span>
