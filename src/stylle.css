@@ -191,6 +191,14 @@
 }
 
 /* Footer */
+.contact_status {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.contact_status.success { color: #4ade80; }
+.contact_status.error { color: #f87171; }
+
 .contact_footer {
   color: rgba(255, 255, 255, 0.25);
   font-family: "Poppins", sans-serif;

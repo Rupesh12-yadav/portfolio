@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import emailjs from '@emailjs/browser';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
@@ -8,20 +8,32 @@ import './stylle.css';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:3033/api/send', formData);
-      alert(response.data);
-    } catch (error) {
-      alert('Error sending email');
-    }
-    setFormData({ name: '', email: '', message: '' });
+    setStatus('sending');
+
+    emailjs.send(
+      'service_yz7xiv9',       // 👉 EmailJS Service ID
+      'template_gg1qlmp',      // 👉 EmailJS Template ID
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'rupeshyadav6129@gmail.com',
+      },
+      'zZqy52OOrIr1J9xUf'        // 👉 EmailJS Public Key
+    ).then(() => {
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    }).catch(() => {
+      setStatus('error');
+    });
   };
 
   return (
@@ -97,10 +109,12 @@ const ContactForm = () => {
               className="contact_input contact_textarea"
             ></textarea>
           </div>
-          <button type="submit" className="contact_submit_btn">
+          <button type="submit" className="contact_submit_btn" disabled={status === 'sending'}>
             <FontAwesomeIcon icon={faPaperPlane} />
-            &nbsp; Send Message
+            &nbsp; {status === 'sending' ? 'Sending...' : 'Send Message'}
           </button>
+          {status === 'success' && <p className="contact_status success">✅ Message sent successfully!</p>}
+          {status === 'error' && <p className="contact_status error">❌ Failed to send. Try again.</p>}
         </form>
 
       </div>

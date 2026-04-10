@@ -2,6 +2,45 @@ import React from 'react'
 import './about_me.css'
 import { motion } from 'framer-motion';
 
+const educations = [
+  {
+    icon: '🏫',
+    badge: '10th',
+    degree: 'Secondary Education',
+    school: 'Govt Higher School - Sandalpur (MP)',
+    year: '2022',
+    score: '58%',
+    type: 'school'
+  },
+  {
+    icon: '🏫',
+    badge: '12th',
+    degree: 'Higher Secondary',
+    school: 'Govt Higher Secondary School - Sandalpur (MP)',
+    year: '2020',
+    score: '78%',
+    type: 'school'
+  },
+  {
+    icon: '🎓',
+    badge: "Bachelor's",
+    degree: 'B.Tech - Computer Science',
+    school: 'Vikram University',
+    year: '2023 – 2026',
+    score: '7.90 CGPA',
+    type: 'college'
+  },
+  {
+    icon: '🎓',
+    badge: "Master's",
+    degree: 'MCA - Computer Science',
+    school: 'RGPA University',
+    year: '2026 – 2028',
+    score: '7.90 CGPA',
+    type: 'college'
+  },
+];
+
 const AboutMe = () => {
   return (
     <motion.div
@@ -11,7 +50,7 @@ const AboutMe = () => {
       viewport={{ once: true }}
       className='about_me' id="aboutMey"
     >
-      {/* About Me Section */}
+      {/* About Me */}
       <div className="about_section">
         <div className="about_tag">Who Am I</div>
         <h2 className='about_title'>About <span className="about_highlight">Me</span></h2>
@@ -41,84 +80,39 @@ const AboutMe = () => {
         </div>
       </div>
 
-      {/* Education Section */}
+      {/* Education 4 Cards */}
       <div className="edu_section">
         <div className="about_tag">My Journey</div>
         <h2 className='about_title'>Edu<span className="about_highlight">cation</span></h2>
-        <div className="education_grid">
 
-          <motion.div className="edu_card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <div className="edu_top">
-              <span className="edu_icon">🏫</span>
-              <span className="edu_badge">10th</span>
-            </div>
-            <h3 className="edu_degree">Secondary Education</h3>
-            <p className="edu_school">Shri Ram High School, Nagpur</p>
-            <div className="edu_bottom">
-              <span className="edu_year">📅 2018</span>
-              <span className="edu_score">85%</span>
-            </div>
-          </motion.div>
+        <div className="edu_grid">
+          {educations.map((edu, i) => (
+            <motion.div
+              key={i}
+              className={`edu_card ${edu.type === 'college' ? 'edu_card_college' : ''}`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.12, duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div className="edu_card_header">
+                <div className="edu_icon_circle">{edu.icon}</div>
+                <span className={`edu_badge ${edu.type === 'college' ? 'edu_badge_gold' : ''}`}>
+                  {edu.badge}
+                </span>
+              </div>
 
-          <motion.div className="edu_card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <div className="edu_top">
-              <span className="edu_icon">🏫</span>
-              <span className="edu_badge">12th</span>
-            </div>
-            <h3 className="edu_degree">Higher Secondary</h3>
-            <p className="edu_school">Shri Ram Junior College, Nagpur</p>
-            <div className="edu_bottom">
-              <span className="edu_year">📅 2020</span>
-              <span className="edu_score">78%</span>
-            </div>
-          </motion.div>
+              <h3 className="edu_degree">{edu.degree}</h3>
+              <p className="edu_school">🏛️ {edu.school}</p>
 
-          <motion.div className="edu_card edu_card_highlight"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <div className="edu_top">
-              <span className="edu_icon">🎓</span>
-              <span className="edu_badge edu_badge_gold">Bachelor's</span>
-            </div>
-            <h3 className="edu_degree">B.Tech - Computer Science</h3>
-            <p className="edu_school">RTM Nagpur University</p>
-            <div className="edu_bottom">
-              <span className="edu_year">📅 2020 – 2024</span>
-              <span className="edu_score">8.2 CGPA</span>
-            </div>
-          </motion.div>
-
-          <motion.div className="edu_card edu_card_highlight"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <div className="edu_top">
-              <span className="edu_icon">🎓</span>
-              <span className="edu_badge edu_badge_gold">Master's</span>
-            </div>
-            <h3 className="edu_degree">M.Tech - Computer Science</h3>
-            <p className="edu_school">RTM Nagpur University</p>
-            <div className="edu_bottom">
-              <span className="edu_year">📅 2024 – 2026</span>
-              <span className="edu_score">9.0 CGPA</span>
-            </div>
-          </motion.div>
-
+              <div className="edu_footer">
+                <span className="edu_year">📅 {edu.year}</span>
+                <span className={`edu_score ${edu.type === 'college' ? 'edu_score_gold' : ''}`}>
+                  {edu.score}
+                </span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
 
