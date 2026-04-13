@@ -54,7 +54,7 @@ const Main = () => {
             <a href="mailto:rupeshyadav6129@gmail.com">
               <button className='buttonc'>✉ E-Mail Me</button>
             </a>
-            <button onClick={() => window.open("/portfolio/Rupesh-Yadav-Resume.pdf", "_blank")} className='buttonb'>
+            <button onClick={() => window.open("/Rupesh-Yadav-Resume.pdf", "_blank")} className='buttonb'>
               📄 Resume
             </button>
           </div>
